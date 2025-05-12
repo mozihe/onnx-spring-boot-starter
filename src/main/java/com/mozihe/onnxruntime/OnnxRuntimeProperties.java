@@ -1,8 +1,8 @@
-package com.moxin.onnxruntime;
+package com.mozihe.onnxruntime;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "moxin.onnxruntime")
+@ConfigurationProperties(prefix = "mozihe.onnxruntime")
 public class OnnxRuntimeProperties {
 
     private String modelPath;

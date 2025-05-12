@@ -1,4 +1,4 @@
-package com.moxin.onnxruntime;
+package com.mozihe.onnxruntime;
 
 import ai.onnxruntime.OnnxTensor;
 import ai.onnxruntime.OrtEnvironment;

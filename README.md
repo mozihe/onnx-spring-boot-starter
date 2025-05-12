@@ -29,7 +29,7 @@ mvn install
 
 ```java
 <dependency>  
-    <groupId>com.moxin</groupId>  
+    <groupId>com.mozihe</groupId>  
     <artifactId>onnxruntime-spring-boot-starter</artifactId>  
     <version>1.0.0</version>  
 </dependency>
@@ -41,26 +41,31 @@ mvn install
 ## 🛠️ 使用示例
 
 ```java
-import ai.onnxruntime.*;  
-import org.springframework.beans.factory.annotation.Autowired;  
-import org.springframework.stereotype.Service;
+package com.mozihe.onnxruntime;
 
-import javax.annotation.PostConstruct;
+import ai.onnxruntime.OrtException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-@Service  
-public class InferenceService {
+import java.util.List;
 
-    @Autowired  
-    private OrtEnvironment ortEnvironment;  
-  
-    @PostConstruct  
-    public void runInference() throws Exception {  
-        OrtSession.SessionOptions options = new OrtSession.SessionOptions();  
-        try (OrtSession session = ortEnvironment.createSession("model.onnx", options)) {  
-            // 输入/输出数据填充逻辑  
-        }  
-    }  
+@RestController
+@RequestMapping("/onnx")
+public class OnnxModelController {
+
+    private final OnnxModelService onnxModelService;
+
+    @Autowired
+    public OnnxModelController(OnnxModelService onnxModelService) {
+        this.onnxModelService = onnxModelService;
+    }
+
+    @PostMapping("/predict")
+    public List<Float> predict(@RequestBody List<Float> input) throws OrtException {
+        return onnxModelService.runModel(input);
+    }
 }
+
 ```
 
 
@@ -84,6 +89,8 @@ public class InferenceService {
 ---
 
 ## 📄 许可证
+
+License: [MIT](./LICENSE)
 
 本项目基于 MIT 协议开源，详见 LICENSE。
 

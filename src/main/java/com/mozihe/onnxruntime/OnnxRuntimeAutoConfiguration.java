@@ -1,4 +1,4 @@
-package com.moxin.onnxruntime;
+package com.mozihe.onnxruntime;
 
 import ai.onnxruntime.OrtEnvironment;
 import ai.onnxruntime.OrtException;
