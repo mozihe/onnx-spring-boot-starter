@@ -1,21 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.3.2</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
+
     <groupId>com.mozihe</groupId>
-    <artifactId>onnxruntime-spring-boot-starter</artifactId>
+    <artifactId>onnx-spring-boot-starter</artifactId>
     <version>1.0.0</version>
-    <name>onnxruntime-spring-boot-starter</name>
-    <description>Spring Boot Starter for ONNX Runtime</description>
+    <packaging>jar</packaging>
+    <name>onnx-spring-boot-starter</name>
+    <description>A lightweight Spring Boot starter that simplifies the integration of ONNX Runtime into Java applications.</description>
+    <url>https://github.com/mozihe/onnx-spring-boot-starter</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>mozihe</id>
+            <name>朱俊衡</name>
+            <email>zhujunheng2005@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/mozihe/onnx-spring-boot-starter</url>
+        <connection>scm:git:git://github.com/mozihe/onnx-spring-boot-starter.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:mozihe/onnx-spring-boot-starter.git</developerConnection>
+    </scm>
+
     <properties>
         <java.version>17</java.version>
+        <gpg.keyname>A896D67D82472EEE</gpg.keyname>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -27,4 +58,45 @@
             <version>1.12.0</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals><goal>jar</goal></goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals><goal>jar</goal></goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals><goal>sign</goal></goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
