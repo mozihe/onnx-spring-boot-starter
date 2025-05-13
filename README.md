@@ -27,10 +27,10 @@ mvn install
 
 **方式二：Maven 引用（等待后续发布）**
 
-```java
+```xml
 <dependency>  
     <groupId>com.mozihe</groupId>  
-    <artifactId>onnxruntime-spring-boot-starter</artifactId>  
+    <artifactId>onnx-spring-boot-starter</artifactId>  
     <version>1.0.0</version>  
 </dependency>
 ```
@@ -84,7 +84,7 @@ public class OnnxModelController {
 - [x] Spring Boot 自动配置
 - [ ] ONNX 模型自动热加载
 - [ ] GPU 支持配置入口
-- [ ] 发布到 Maven Central / OSSRH
+- [x] 发布到 Maven Central / OSSRH
 
 ---
 
